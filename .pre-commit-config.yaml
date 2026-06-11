@@ -1,0 +1,35 @@
+default_language_version:
+  python: python3
+
+repos:
+  # ── General hygiene ──────────────────────────────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=10240"]
+      - id: debug-statements
+
+  # ── Black – code formatter ────────────────────────────────────────────────────
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        language_version: python3
+        args: ["--config", "pyproject.toml"]
+
+  # ── Flake8 – linter ───────────────────────────────────────────────────────────
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        args: ["--config", ".flake8"]
+        additional_dependencies:
+          - flake8-bugbear # extra bug-finding rules
+          - flake8-comprehensions # cleaner list/dict comprehension hints
