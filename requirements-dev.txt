@@ -1,0 +1,13 @@
+# ── Dev / tooling dependencies (not needed in production) ─────────────────────
+-r requirements.txt
+
+# Formatting
+black==24.4.2
+
+# Linting
+flake8==7.0.0
+flake8-bugbear==24.4.26
+flake8-comprehensions==3.14.0
+
+# Pre-commit framework
+pre-commit==3.7.1
